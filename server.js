@@ -1,5 +1,5 @@
-const net = require('net');
-const port = 21;
+st net = require('net');
+const port = 330;
 
 let carPosition;
 let carSpeed;
@@ -14,18 +14,27 @@ const server = net.createServer((socket) => {
         // Log the data
         console.log(jsonData);
     
-        carPosition = jsonData.carX;
-        humanPosition = jsonData.pedestrianY;
+        if(jsonData.hasOwnProperty(carX)){
+            carPosition = jsonData.carX;
+        }
+        if(jsonData.hasOwnProperty(pedestrianY)){ 
+            humanPosition = jsonData.pedestrianY;
+        }
+
+        if(humanPosition != null && carPosition != null){
+            if(humanPosition > 0 && humanPosition < 7){
+                carSpeed = 0;
+            } 
+            else{
+                carSp,eed = 1;
+            }
+        }
+        console.log(carSpeed);
+
     });
 
-    try{
-    if(humanPosition != null && carPosition != null){
-        if(humanPosition > 0 && humanPosition < 7){
-            carSpeed = 0;
-        } 
-    }
-    }
-    catch{console.log("Cant stop car");}
+
+
 });
 
 // Define the port on which you want to connect
