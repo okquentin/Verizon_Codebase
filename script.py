@@ -9,8 +9,8 @@ yCoord = 0
 while True:
     while yCoord < 126:
         pedestrian = { 
-            "carX": yCoord,
-            "carY": XCOORD
+            "pedX": yCoord,
+            "pedY": XCOORD
          }
         pCoords = json.dumps(pedestrian)
         HOST = '192.168.0.2'
