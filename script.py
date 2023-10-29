@@ -3,12 +3,11 @@ import socket
 import random
 import time
 
-YCOORD = 3
+YCOORD = 63
 xCoord = 0
-speed = 30
 
 while True:
-    while xCoord < 11:
+    while xCoord < 256:
         car = { 
             "carX": xCoord,
             "carY": YCOORD
@@ -22,7 +21,7 @@ while True:
         sock.close()
         print(xCoord)
         xCoord += 1
-        time.sleep(1)
+        time.sleep(.25)
     xCoord = 0
     waitTime = random.randint(0,7)
     time.sleep(waitTime)
